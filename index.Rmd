@@ -1,0 +1,15 @@
+--- 
+title: "Regressão com R"
+author: "Fernando Meireles"
+date: "Julho, 2018"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Curso de Regressão usando R."
+---
+
+# Sobre o curso {-}
+
+Este material oferece uma introdução à regressão usando o ambiente de programação `R`, complementando o curso de Regressão da ENAP.

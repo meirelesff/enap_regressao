@@ -1,0 +1,99 @@
+# Modelos Lineares Multivariados {#aula2}
+
+Embora examinar a relação entre duas variáveis, como vimos na Aula \@ref(aula1), seja útil em algumas ocasiões, modelos lineares também servem para examinar o efeito de múltiplas variáveis independentes simultaneamente. Nessa aula, vamos ver como estimar modelos como estes. Após isso, veremos como rodar e interpretar de forma simples modelos lineares multivariados e, também, modelos com transformações de variáveis independentes -- o que é útil em alguns casos, como quando examinamos relações quadráticas ou quando desejamos interpretar coeficientes de forma percentual.
+
+## Modelo linear com dois preditores
+
+No exemplo da Aula \@ref(aula1), examinamos o efeito da variávei X sobre Y em todos os municípios brasileiros. Como vimos, essa relação é positiva e, além disso, é possível inferir isso a partir dos dados, dado os intervalos de confiança da estimativa do efeito predito de X sobre Y.
+
+Na mesma base de dados, também temos outra variável que possivelmente tem efeito sobre Y. Essa variável chama-se `X`, e indica quanto... 
+
+Vamos carregar nosso banco de dados usando o pacote `readr`.
+
+
+```{r, eval=FALSE}
+library(readr)
+x <- read_delim("afe.txt", delim = ";")
+
+```
+
+Para termos uma ideia sobre a distribuição da variável X, podemos usar o indexador `$` para acessá-la conjuntamente com a função `summary` para gerar algumas estatísticas descritivas.
+
+
+```{r, eval=FALSE}
+summary(x$variavel)
+```
+
+Sempre é uma boa ideia examinar graficamente a relação entre variáveis e, nesse caso, podemos fazer isso usando o pacote `ggplot2` para plotar a relação entre X e Y.
+
+```{r, eval=FALSE}
+library(ggplot2)
+
+ggplot(banco, aes(x = x, y = y)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") 
+```
+
+O problema: essa relação não leva em conta o efeito de X. Talvez municípios que tenham valores... em X tenham ... em X2. Modelos lineares nos permitem contornar esse tipo de problema. Para isso, precisamos apenas estimar um modelo que inclua as duas variáveis, X e X2, como preditores simultaneamente. O truque para fazer isso é fácil: basta apenas usar um `+` para adicionar mais variáveis.
+
+```{r, eval=FALSE}
+meu_modelo2 <- lm(y ~ x + x2, data = banco)
+```
+
+
+## Modelos com múltiplos preditores
+
+Usando a mesma sintaxe que vimos acima, podemos facilmente incluir mais variáveis a um modelo linear. Vamos incluir uma variável adicional ao nosso modelo, chamada X, que indica... 
+
+```{r, eval=FALSE}
+meu_modelo2 <- lm(y ~ x + x2, data = banco)
+```
+
+Aqui também, interpretar os resultados é algo simples. 
+
+
+
+## Obtendo resultados simplificados
+
+Algo que dificulta interpretar modelos multivariados de forma rápida é a quantidade de informações reportada pela função `summary`. Felizmente, existe uma alternativa a ela em um pacote chamado `arm`: a função `display`. Em vez de reportar uma série de estatísticas e informações nem sempre úteis, essa função simplifica os resultados de uma regressão, reportando apenas estimativas, erros-padrão e informações como número de observações e parâmetros estimados. Como veremos adiante, `arm` também oferece algumas funções que simplificam enormemente nossa tarefa de estimar e analisar modelos de regressão. 
+
+Como esse pacote não vem por padrão no `R`, precisamos intalá-lo usando `install.packages`.
+
+```{r, eval=FALSE}
+install.packages(arm)
+```
+
+Feito isso, podemos carregar o pacote e usá-lo para reportar os resultados do nosso modelo linear multivariado salvo no objeto `modelo_multi`.
+
+```{r, eval=FALSE}
+library(arm)
+
+display(modelo_multi)
+```
+
+
+## Interpretando resultados com gráficos
+
+`arm` ainda oferece um jeito mais fácil de visualizar resultados de modelos multivariados. Usando a função `coefplot`, ele plota as estimativas de um modelo, já incluindo intervalos de confiança de 95% e 90%. Para usá-la, basta passar o objeto com o modelo salvo para a função.
+
+```{r, eval=FALSE}
+coefplot(modelo_multi)
+```
+
+Além de simples, o resultado gráfico 
+
+## Centrando preditores
+
+
+## Tranformando preditores
+
+
+## Relações quadráticas e outras
+
+
+## Exercícios {-}
+
+
+
+
+

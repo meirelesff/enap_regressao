@@ -1,0 +1,14 @@
+"0","atlas <- read_csv(""atlas_condensado.csv"")
+"
+"2","Parsed with column specification:
+cols(
+  .default = col_double(),
+  ano = col_integer(),
+  uf = col_integer(),
+  municipio = col_character(),
+  pop = col_integer(),
+  homemtot = col_integer()
+)
+"
+"2","See spec(...) for full column specifications.
+"

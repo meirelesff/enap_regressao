@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Regressão com R</title>
+  <meta name="description" content="Curso de Regressão usando R.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Regressão com R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Curso de Regressão usando R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Regressão com R" />
+  
+  <meta name="twitter:description" content="Curso de Regressão usando R." />
+  
+
+<meta name="author" content="Fernando Meireles">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="aula2.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ENAP | Regressão com R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre o curso</a></li>
+<li class="chapter" data-level="1" data-path="aula1.html"><a href="aula1.html"><i class="fa fa-check"></i><b>1</b> Modelo Linear Simples</a><ul>
+<li class="chapter" data-level="1.1" data-path="aula1.html"><a href="aula1.html#visualizando-relacoes-entre-duas-variaveis"><i class="fa fa-check"></i><b>1.1</b> Visualizando relações entre duas variáveis</a></li>
+<li class="chapter" data-level="" data-path="aula1.html"><a href="aula1.html#exercicios-i"><i class="fa fa-check"></i>Exercícios I</a></li>
+<li class="chapter" data-level="1.2" data-path="aula1.html"><a href="aula1.html#visualizando-relacoes-entre-variaveis-em-um-banco"><i class="fa fa-check"></i><b>1.2</b> Visualizando relações entre variáveis em um banco</a></li>
+<li class="chapter" data-level="1.3" data-path="aula1.html"><a href="aula1.html#estimativas"><i class="fa fa-check"></i><b>1.3</b> Estimativas</a></li>
+<li class="chapter" data-level="1.4" data-path="aula1.html"><a href="aula1.html#inferencia"><i class="fa fa-check"></i><b>1.4</b> Inferência</a></li>
+<li class="chapter" data-level="1.5" data-path="aula1.html"><a href="aula1.html#obtendo-resultados-detalhados"><i class="fa fa-check"></i><b>1.5</b> Obtendo resultados detalhados</a></li>
+<li class="chapter" data-level="1.6" data-path="aula1.html"><a href="aula1.html#acessando-informacoes-de-um-objeto-lm"><i class="fa fa-check"></i><b>1.6</b> Acessando informações de um objeto lm</a></li>
+<li class="chapter" data-level="" data-path="aula1.html"><a href="aula1.html#exercicios-ii"><i class="fa fa-check"></i>Exercícios II</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="aula2.html"><a href="aula2.html"><i class="fa fa-check"></i><b>2</b> Modelos Lineares Multivariados</a><ul>
+<li class="chapter" data-level="2.1" data-path="aula2.html"><a href="aula2.html#modelo-linear-com-dois-preditores"><i class="fa fa-check"></i><b>2.1</b> Modelo linear com dois preditores</a></li>
+<li class="chapter" data-level="2.2" data-path="aula2.html"><a href="aula2.html#modelos-com-multiplos-preditores"><i class="fa fa-check"></i><b>2.2</b> Modelos com múltiplos preditores</a></li>
+<li class="chapter" data-level="2.3" data-path="aula2.html"><a href="aula2.html#obtendo-resultados-simplificados"><i class="fa fa-check"></i><b>2.3</b> Obtendo resultados simplificados</a></li>
+<li class="chapter" data-level="2.4" data-path="aula2.html"><a href="aula2.html#interpretando-resultados-com-graficos"><i class="fa fa-check"></i><b>2.4</b> Interpretando resultados com gráficos</a></li>
+<li class="chapter" data-level="2.5" data-path="aula2.html"><a href="aula2.html#centrando-preditores"><i class="fa fa-check"></i><b>2.5</b> Centrando preditores</a></li>
+<li class="chapter" data-level="2.6" data-path="aula2.html"><a href="aula2.html#tranformando-preditores"><i class="fa fa-check"></i><b>2.6</b> Tranformando preditores</a></li>
+<li class="chapter" data-level="2.7" data-path="aula2.html"><a href="aula2.html#relacoes-quadraticas-e-outras"><i class="fa fa-check"></i><b>2.7</b> Relações quadráticas e outras</a></li>
+<li class="chapter" data-level="" data-path="aula2.html"><a href="aula2.html#exercicios"><i class="fa fa-check"></i>Exercícios</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Regressão com R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aula1" class="section level1">
+<h1><span class="header-section-number">Aula 1</span> Modelo Linear Simples</h1>
+<p>O <code>R</code> é um ambiente de programação desenvolvido por originalmente <a href="http://www.statisticsviews.com/details/feature/8585391/Created-by-statisticians-for-statisticians-How-R-took-the-world-of-statistics-by.html">por estatísticos, para estatísticos</a>. Por conta disso, uma de suas maiores potencialidades é precisamente o vasto conjunto de facilidades que ele oferece para realizarmos análises de dados – e, particularmente, para estimarmos modelos de regressão.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Nesta primeira aula, veremos um dos modelos mais básicos, mas também um dos mais utilizados, de regressão: o modelo linear simples estimado por mínimos quadrados ordinários (MQO).<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Entre outros, aprenderamos a visualizar relações lineares bivariadas; a usar a função básica para estimar modelos lineares, <code>lm</code>; e a obter resultados detalhados de um modelo. Também usaremos alguns dados, que estão na pasta de materiais desta aula.</p>
+<div id="visualizando-relacoes-entre-duas-variaveis" class="section level2">
+<h2><span class="header-section-number">1.1</span> Visualizando relações entre duas variáveis</h2>
+<p>Podemos usar gráficos para visualizar relações entre variáveis. Podemos, por exemplo, criar duas variáveis contínuas, geradas aleatoriamente com a função <code>rnorm</code>, e plotar sua relação com um gráfico de pontos.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>) <span class="co"># Para replicar o conteudo da aula</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>x)</a></code></pre></div>
+<p>É possível ver que as variáveis que criamos, <code>y</code> e <code>x</code>, não parecem ter relação. Na verdade, os pontos no gráficos estão dispersos, o que dificulta detectar algum padrão.</p>
+<p>Para investigarmos isso detidamente, usamos um modelo linear estimado por mínimos quadrados ordinários (MQO). A função que estima esse tipo de modelo chama-se <code>lm</code>, e ela está contida no <code>R-base</code>. Portanto, não precisamos carregar nenhum pacote para usá-la, basta executar o seguinte código:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</a></code></pre></div>
+<p>A utilização da função <code>lm</code> é simples. Em primeiro lugar, precisamos passar como argumento da função uma fórmula contendo a especificação do nosso modelo. No exemplo, <code>y</code> é nossa variável dependente e, assim, aparece do lado direito do operador <code>~</code>. <code>x</code>, dessa forma, é nossa variável independente, ou explicativa, ou, ainda, preditora.</p>
+<p>Podemos salvar os resultados de um modelo em um objeto para facilitar a sua manipulação.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">meu_modelo &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</a></code></pre></div>
+<p>Uma das vantagens disso é que, agora, podemos usá-lo para traçar um reta com valores preditos de <code>y</code> em relação a <code>x</code>, que resume a relação entre ambas, no gráfico que criamos anteriormente. Para tanto, usamos apenas a função <code>abline</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>x)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">abline</span>(meu_modelo)</a></code></pre></div>
+<p>Realmente, não parece haver relação substantiva entre <code>y</code> e <code>x</code>, como indica a melhor reta estimada via MQO.</p>
+</div>
+<div id="exercicios-i" class="section level2 unnumbered">
+<h2>Exercícios I</h2>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>Crie duas variáveis aleatórias, <code>var1</code> e <code>var2</code>, usando a função <code>rnorm</code>. Cada variável precisa ter 1000 observações (linhas);</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>Com essas variáveis, rode e salve um modelo de regressão linear simples no objeto <code>modelo_simples</code>, usando <code>var1</code> como variável dependente e <code>var2</code> como independente;</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: decimal">
+<li>Construa um gráfico <em>scatterplot</em> que mostre a relação entre essas variáveis e que inclua uma reta que sintetize a relação entre elas (a partir das informações salvas em <code>modelo_simples</code>).</li>
+</ol></li>
+</ul>
+</div>
+<div id="visualizando-relacoes-entre-variaveis-em-um-banco" class="section level2">
+<h2><span class="header-section-number">1.2</span> Visualizando relações entre variáveis em um banco</h2>
+<p>Daqui até o fim dessa aula, usaremos um banco de dados como exemplo para praticarmos o básico de construção de modelos bivariados. Esse arquivo, com algumas variáveis selecionadas do Atlas do Desenvolvimento Humano para municípios no ano de 2010 (<a href="http://atlasbrasil.org.br/2013/pt/download/" class="uri">http://atlasbrasil.org.br/2013/pt/download/</a>), chama-se <code>atlas_condensado.csv</code>, e está nos materiais complementares dessa aula. Como ele está no formato <code>.csv</code>, podemos carregá-lo com a função <code>read_csv</code> do pacote <code>readr</code>, salvando o banco num objeto <code>atlas</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">atlas &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;atlas_condensado.csv&quot;</span>)</a></code></pre></div>
+<p>A função <code>read_csv</code> já indica o nome e a classe de cada variável no objeto <code>atlas</code>, onde salvamos os dados. Usando <code>names</code> e <code>head</code>, é possível ver mais detalhadamente esse <code>data.frame</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">names</span>(atlas)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">head</span>(atlas)</a></code></pre></div>
+<p>Em particular, vamos trabalhar com duas dessas variáveis: a <code>t_agua</code>, que indica a percentagem de domicílios com água encanada, e a <code>mort1</code>, que indica o número de crianças que não sobreviveram ao primeiro ano de idade em cada 1000 crianças nascidas no município. Nosso objetivo será investigar se existe relação entre disponibilidade de água encanada (nossa variável independente) e mortalidade infantil (nossa variável dependente) usando um modelo linear por MQO. Como essas variáveis estão dentro de um banco de dados, existe um modo mais fácil de visualizar a relação entre elas usando o pacote <code>ggplot2</code>. Especificamente, esse pacote contém um <code>geom</code> chamado <code>geom_smooth</code> que serve para plotar uma curva trançando a relação entre duas (ou mais, como veremos adiante) variáveis. Criamos esse gráfico com o seguinte código:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">ggplot</span>(atlas, <span class="kw">aes</span>(<span class="dt">x =</span> t_lixo, <span class="dt">y =</span> mort1)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="co"># Adiciona os pontos</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="co"># Adiciona a curva, estimada por um modelo linear</span></a></code></pre></div>
+<p>Como se depreende do código acima, só precisamos especificar um método na função <code>geom_smooth</code> que, no caso, é <code>&quot;lm&quot;</code>, de <em>linear model</em>. Mais importante, nesse caso parece haver uma clara associação negativa entre a disponibilidade domiciliar de água e mortalidade infantil: quanto maior a disponibilidade, menor a mortalidade.</p>
+</div>
+<div id="estimativas" class="section level2">
+<h2><span class="header-section-number">1.3</span> Estimativas</h2>
+<p>Para examinarmos formalmente a relação entre <code>t_agua</code> e <code>mort1</code>, vamos recorrer novamente à função <code>lm</code>. Como temos um <code>data.frame</code> agora, e não mais dois vetores em objetos diferentes, usaremos um argumento da função <code>lm</code> para passar as variáveis do banco para ela. O argumento chama-se <code>data =</code>, e precisamos apenas passar a ele o nome do <code>data.frame</code> que contém nossas variáveis.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">meu_modelo &lt;-<span class="st"> </span><span class="kw">lm</span>(mort1 <span class="op">~</span><span class="st"> </span>t_agua, <span class="dt">data =</span> atlas)</a></code></pre></div>
+<p>Note que podemos estimar o mesmo modelo sem usar o argumento <code>data</code>, mas precisaremos usar em seu lugar indexadores (o que é mais trabalhoso e não recomendado):</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">lm</span>(atlas<span class="op">$</span>mort1 <span class="op">~</span><span class="st"> </span>atlas<span class="op">$</span>t_agua)</a></code></pre></div>
+<p>Para exibir de forma condensada os resultados do nosso modelo salvo em <code>meu_modelo</code>, basta digitar o nome do objeto no console:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">meu_modelo</a></code></pre></div>
+<p>Os dois modos produzem o mesmo resultado, ainda que o segundo seja o mais adequado. Mas, afinal, o que significa esse output da função <code>lm</code>. Podemos resumi-lo em duas partes:</p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>Abaixo de <code>Call:</code>, a função <code>lm</code> apenas exibe a chamada que usamos para rodar nosso modelo, incluindo aqui a fórmula usada;</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>O mais importante, contudo, segue abaixo de <code>Coefficients:</code>, indicando a estimativa dos parâmetros, ou coeficientes, do efeito da variável independente, <code>t_agua</code>, sobre a variável dependente, <code>mort1</code>, além de um intercepto (ou constante), que indica o valor de esperado de mortalidade infantil num município hipotético onde a disponibilidade de água nos domicílios é zero.</li>
+</ol></li>
+</ul>
+<p>Com isso, podemos concluir rapidamente que a associação entre <code>t_agua</code> e <code>mort1</code> é negativa, uma vez que um aumento de 1% da variável <code>t_agua</code> prediz um decréscimo em <code>mort1</code>. Além disso, quando o valor de <code>t_agua</code> é igual a zero, nosso modelo prediz que o valor de <code>mort1</code> será igual ao da estimativa do intercepto. Obviamente, isso condiz o gráfico que fizemos anteriormente.</p>
+</div>
+<div id="inferencia" class="section level2">
+<h2><span class="header-section-number">1.4</span> Inferência</h2>
+<p>No mais das vezes, apenas avaliar um modelo pelos seus coeficientes não é suficiente. Usando nosso modelo estimado, podemos facilmente dar um passo adiante e fazer inferências a partir deles, considerando a incerteza na estimação dos nossos parâmetros.</p>
+<p>Para tanto, o <code>R</code> dispõe de uma função, que é carregada por padrão a partir do pacote <code>stats</code>, chamada <code>confint</code>. Com ela, é possível calcular um intervalo de confiança de 95% (ou qualquer outro valor) para os coeficientes de nosso modelo.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">confint</span>(meu_modelo, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<p>A função retorna os intervalos mínimo e máximo de cada estimativa, o que pode ser usado para fazer afirmações do tipo de que, com 95% de probabilidade, nossa estimativa do efeito de <code>t_gua</code> sobre <code>mort1</code> está situada no intervalo indicado por <code>2.5 %</code> e <code>97.5 %</code>.</p>
+<p>Para alterar a cobertura do intervalo de confiança, basta modificar o valor passado ao argumento <code>level</code> da função (0.95 equivale a um intervalo de 95%):</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">confint</span>(meu_modelo, <span class="dt">level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+</div>
+<div id="obtendo-resultados-detalhados" class="section level2">
+<h2><span class="header-section-number">1.5</span> Obtendo resultados detalhados</h2>
+<p>Ainda que exibir os resultados da forma como fizemos seja útil para uma inspeção rápida, existem outras informações úteis que precisamos acessar para avaliarmos um modelo. Para obtê-las, usamos a função <code>summary</code>, que já vimos anteriormente.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">summary</span>(meu_modelo)</a></code></pre></div>
+<p>Afora a linha iniciada por <code>Call:</code>, que já vimos, essa função retorna uma série de novas informações. Vamos focar especialmente em duas:</p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li><code>Coefficients:</code> reporta informações sobre as estimativas e inferências de nosso modelo, incluindo aqui a estimativa do efeito de nossas variáveis independentes e intercepto (abaixo de <code>Estimate</code>); o erro-padrão (<code>Std. Error</code>) de cada estimativa, que indica a incerteza envolvida nelas (e é usada no cálculo de intervalos de confiança); T-valor, <code>t value</code>, uma métrica normalmente usada para calcular P-valores em modelos de regressão (i.e., que é igual à estimativa divido pelo erro-padrão); e, finalmente, P-valor, <code>Pr(&gt;|t|)</code>, a famosa estatística usada para testar se o efeito indicado por cada estimativa é (P-valor &gt; 0.05) ou não (P-valor &lt; 0.05) fruto de variação aleatória.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>;</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li><code>Multiple R-squared:</code> e <code>Adjusted R-squared:</code> são métricas simples que indicam a quantia de variação explicada pelo nosso modelo, onde 1 indica que toda a variação é explicada (e, logo, nossas variáveis predizem perfeitamente os valores de Y);</li>
+</ol></li>
+</ul>
+</div>
+<div id="acessando-informacoes-de-um-objeto-lm" class="section level2">
+<h2><span class="header-section-number">1.6</span> Acessando informações de um objeto lm</h2>
+<p>Assim como outras informações no <code>R</code>, nosso modelo salvo no objeto <code>meu_modelo</code> contém diversas informações dentro dele. Por exemplo, podemos extrair um vetor com nossas estimativas usando:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">meu_modelo<span class="op">$</span>coefficients</a></code></pre></div>
+<p>Essa e outras informações salvas dentro do objeto podem ser vistas com <code>names</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">names</span>(meu_modelo)</a></code></pre></div>
+<p>Também é possível salvar o <em>output</em> da função <code>summary</code> para fazer a mesma coisa.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">resumo &lt;-<span class="st"> </span><span class="kw">summary</span>(meu_modelo)</a></code></pre></div>
+<p>Feito isso, temos à disposição todas as estatísticas reportadas pela função <code>summary</code> dentro de um mesmo objeto, o que pode ser usado, por exemplo, para extrair rapidamente apenas o R-quadrado de nosso modelo, como abaixo.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">resumo<span class="op">$</span>r.squared</a></code></pre></div>
+<p>Isso será bastante útil em algumas situações que veremos adiante. Por enquanto, tente explorar as informações contidas dentro dos objetos <code>resumo</code> e <code>meu_modelo</code> e tente identificar o que indicam.</p>
+</div>
+<div id="exercicios-ii" class="section level2 unnumbered">
+<h2>Exercícios II</h2>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>A base <code>atlas</code>, que carregamos anteriormente, contém outras duas variáveis que podem ter relação com a taxa de mortalidade infantial até um 1 ano por 1000 crianças nascidas. São elas: <code>t_lixo</code>, que indica a % de domicílios no município com coleta de lixo; e <code>t_luz</code>, que indica a % de domicílios com energia elétrica. Qual sua expectativa do efeito dessas variáveis sobre <code>mort1</code>?</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>Faça dois gráficos de <em>scatterplot</em>, um para investigar a relação entre <code>mort1</code> e <code>t_luz</code> e, o outro, para investigar a relação entre <code>mort1</code> e <code>t_lixo</code>;</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: decimal">
+<li>Estime e salve dois modelos lineares simples para examinar a relação entre <code>mort1</code> e <code>t_luz</code> e entre <code>mort1</code> e <code>t_lixo</code>. Lembre-se: <code>mort1</code> é nossa variável dependente;</li>
+</ol></li>
+<li><ol start="4" style="list-style-type: decimal">
+<li>Usando <code>summary</code>, interprete os resultados desses dois modelos. Os resultados condizem com a sua expectativa prévia?</li>
+</ol></li>
+<li><ol start="5" style="list-style-type: decimal">
+<li>Com os mesmos modelos estimados anteriormente, faça inferência a partir do efeito de <code>t_luz</code> e <code>t_lixo</code> sobre <code>mort1</code>. Quais são os intervalos máximos e mínimos, considerando 95% de probabilidade, dos efeitos dessas duas variáveis?</li>
+</ol></li>
+</ul>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Por exemplo, o <em>R CRAN Task View</em> fornece vários compilados com materiais e pacotes para <code>R</code> sobre temas como análise de <a href="https://cran.r-project.org/web/views/TimeSeries.html">séries temporais</a> e <a href="https://cran.r-project.org/web/views/Econometrics.html">econometria</a> (que nada mais é do que um subconjunto de ferramentas estatísticas mais apropriadas para análises normalmente feitas nas Ciências Sociais).<a href="aula1.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Para um explicação rápida de como esse método de estimação funciona, <a href="https://fmeireles.shinyapps.io/modelagem_r/">ver aqui</a>.<a href="aula1.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>A título de curiosidade, o P-valor é calculado com base na estatística T de cada variável e outra informação que cobriremos a seguir, os graus de liberdade do modelo.<a href="aula1.html#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aula2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["regressao_com_r.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

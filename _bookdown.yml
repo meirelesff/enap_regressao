@@ -1,0 +1,8 @@
+book_filename: "regressao_com_r"
+delete_merged_file: true
+language:
+   label:
+    fig: "Figura "
+    tab: "Tabela "
+   ui:
+    chapter_name: "Aula "

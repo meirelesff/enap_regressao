@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Regressão com R</title>
+  <meta name="description" content="Curso de Regressão usando R.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Regressão com R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Curso de Regressão usando R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Regressão com R" />
+  
+  <meta name="twitter:description" content="Curso de Regressão usando R." />
+  
+
+<meta name="author" content="Fernando Meireles">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="aula1.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ENAP | Regressão com R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre o curso</a></li>
+<li class="chapter" data-level="1" data-path="aula1.html"><a href="aula1.html"><i class="fa fa-check"></i><b>1</b> Modelo Linear Simples</a><ul>
+<li class="chapter" data-level="1.1" data-path="aula1.html"><a href="aula1.html#visualizando-relacoes-entre-duas-variaveis"><i class="fa fa-check"></i><b>1.1</b> Visualizando relações entre duas variáveis</a></li>
+<li class="chapter" data-level="" data-path="aula1.html"><a href="aula1.html#exercicios-i"><i class="fa fa-check"></i>Exercícios I</a></li>
+<li class="chapter" data-level="1.2" data-path="aula1.html"><a href="aula1.html#visualizando-relacoes-entre-variaveis-em-um-banco"><i class="fa fa-check"></i><b>1.2</b> Visualizando relações entre variáveis em um banco</a></li>
+<li class="chapter" data-level="1.3" data-path="aula1.html"><a href="aula1.html#estimativas"><i class="fa fa-check"></i><b>1.3</b> Estimativas</a></li>
+<li class="chapter" data-level="1.4" data-path="aula1.html"><a href="aula1.html#inferencia"><i class="fa fa-check"></i><b>1.4</b> Inferência</a></li>
+<li class="chapter" data-level="1.5" data-path="aula1.html"><a href="aula1.html#obtendo-resultados-detalhados"><i class="fa fa-check"></i><b>1.5</b> Obtendo resultados detalhados</a></li>
+<li class="chapter" data-level="1.6" data-path="aula1.html"><a href="aula1.html#acessando-informacoes-de-um-objeto-lm"><i class="fa fa-check"></i><b>1.6</b> Acessando informações de um objeto lm</a></li>
+<li class="chapter" data-level="" data-path="aula1.html"><a href="aula1.html#exercicios-ii"><i class="fa fa-check"></i>Exercícios II</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="aula2.html"><a href="aula2.html"><i class="fa fa-check"></i><b>2</b> Modelos Lineares Multivariados</a><ul>
+<li class="chapter" data-level="2.1" data-path="aula2.html"><a href="aula2.html#modelo-linear-com-dois-preditores"><i class="fa fa-check"></i><b>2.1</b> Modelo linear com dois preditores</a></li>
+<li class="chapter" data-level="2.2" data-path="aula2.html"><a href="aula2.html#modelos-com-multiplos-preditores"><i class="fa fa-check"></i><b>2.2</b> Modelos com múltiplos preditores</a></li>
+<li class="chapter" data-level="2.3" data-path="aula2.html"><a href="aula2.html#obtendo-resultados-simplificados"><i class="fa fa-check"></i><b>2.3</b> Obtendo resultados simplificados</a></li>
+<li class="chapter" data-level="2.4" data-path="aula2.html"><a href="aula2.html#interpretando-resultados-com-graficos"><i class="fa fa-check"></i><b>2.4</b> Interpretando resultados com gráficos</a></li>
+<li class="chapter" data-level="2.5" data-path="aula2.html"><a href="aula2.html#centrando-preditores"><i class="fa fa-check"></i><b>2.5</b> Centrando preditores</a></li>
+<li class="chapter" data-level="2.6" data-path="aula2.html"><a href="aula2.html#tranformando-preditores"><i class="fa fa-check"></i><b>2.6</b> Tranformando preditores</a></li>
+<li class="chapter" data-level="2.7" data-path="aula2.html"><a href="aula2.html#relacoes-quadraticas-e-outras"><i class="fa fa-check"></i><b>2.7</b> Relações quadráticas e outras</a></li>
+<li class="chapter" data-level="" data-path="aula2.html"><a href="aula2.html#exercicios"><i class="fa fa-check"></i>Exercícios</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Regressão com R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Regressão com R</h1>
+<h4 class="author"><em>Fernando Meireles</em></h4>
+<h4 class="date"><em>Julho, 2018</em></h4>
+</div>
+<div id="sobre-o-curso" class="section level1 unnumbered">
+<h1>Sobre o curso</h1>
+<p>Este material oferece uma introdução à regressão usando o ambiente de programação <code>R</code>, complementando o curso de Regressão da ENAP.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="aula1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["regressao_com_r.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

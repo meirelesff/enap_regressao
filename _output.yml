@@ -1,0 +1,17 @@
+bookdown::gitbook:
+  fig_caption: true
+  css: style.css
+  config:
+    search: yes
+    toc:
+      before: |
+        <li><a href="./">ENAP | Regressão com R</a></li>
+      after: null
+    download: ["pdf"]
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default
